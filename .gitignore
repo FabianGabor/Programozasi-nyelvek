@@ -147,3 +147,4 @@ dkms.conf
 *.exe
 *.out
 *.app
+/.metadata/

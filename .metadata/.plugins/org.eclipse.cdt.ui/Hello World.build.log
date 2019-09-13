@@ -1,7 +1,7 @@
-21:01:25 **** Incremental Build of configuration Debug for project Hello World ****
+02:03:38 **** Rebuild of configuration Debug for project Hello World ****
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Hello World.o" "..\\src\\Hello World.c" 
 gcc -o "Hello World.exe" "src\\Hello World.o" 
 
-21:01:26 Build Finished. 0 errors, 0 warnings. (took 271ms)
+02:03:39 Build Finished. 0 errors, 0 warnings. (took 772ms)
 
