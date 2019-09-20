@@ -1,4 +1,4 @@
-# Programozasi-nyelvek
+# Programozási nyelvek
 ### Nyíregyházi Egyetem - Programtervező informatikus | CXNU8T
 
 
