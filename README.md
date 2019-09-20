@@ -1,4 +1,4 @@
 # Programozasi-nyelvek
 Nyíregyházi Egyetem - Programtervező informatikus | CXNU8T
 
-Dr. Bajalinov Erik http://zeus.nye.hu/~veca/c/
+Vegera József http://zeus.nye.hu/~veca/c/
