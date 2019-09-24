@@ -35,6 +35,8 @@ Struct getConsoleSize() {
     return size;
 }
 
+Struct cs;
+
 int digit[10][5][3] =
 {
     {
@@ -116,7 +118,7 @@ void clrscr()
 
 void digits(int h, int min, int sec)
 {
-    Struct cs;
+    Struct currentcs;
     int digi_time [6][5][3];
 
     for (int i=0; i<5; i++)
@@ -130,10 +132,18 @@ void digits(int h, int min, int sec)
             digi_time[5][i][j] = digit[sec % 10][i][j];
         }
 
+    currentcs=getConsoleSize();
+
+    if ((cs.cols!=currentcs.cols) || (cs.rows!=currentcs.rows))
+    {
+        clrscr();
+        cs.cols=currentcs.cols;
+        cs.rows=currentcs.rows;
+    }
+
 
     for (int x = 0; x < 5; x++)
     {
-        cs=getConsoleSize();
         gotoxy((cs.cols-30)/2,(cs.rows-5)/2+x);
         for (int i=0;i<=5;i++)
         {
