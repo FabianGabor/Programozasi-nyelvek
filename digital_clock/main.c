@@ -9,6 +9,12 @@ void gotoxy(short col, short row)
 {
     HANDLE h=GetStdHandle(STD_OUTPUT_HANDLE);
     COORD position={col,row};
+    CONSOLE_CURSOR_INFO info;
+
+    info.dwSize = 100;
+    info.bVisible = FALSE;
+    SetConsoleCursorInfo(h, &info);
+
     SetConsoleCursorPosition(h,position);
 }
 
@@ -147,7 +153,7 @@ int main()
     while (!kbhit()) {
         //clrscr();
         current_time();        
-        Sleep(2);
+        Sleep(100);
     }
     return 0;
 }
