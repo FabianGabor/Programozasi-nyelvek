@@ -4,6 +4,7 @@
 #include <time.h>
 #include <conio.h>
 #include <Windows.h>
+#define fullscreenMSG "Press Alt + Enter to enter/exit full screen mode"
 
 void gotoxy(short col, short row)
 {
@@ -141,6 +142,8 @@ void digits(int h, int min, int sec)
         cs.rows=currentcs.rows;
     }
 
+    gotoxy((cs.cols-sizeof(fullscreenMSG))/2, cs.rows-2);
+    printf(fullscreenMSG);
 
     for (int x = 0; x < 5; x++)
     {
