@@ -110,6 +110,7 @@ void digits(int h, int min, int sec)
 
     for (int x = 0; x < 5; x++)
     {
+        // TODO: gotoxy(console.width/2, console.height/2);
         gotoxy(45,10+x);
         for (int i=0;i<=5;i++)
         {
