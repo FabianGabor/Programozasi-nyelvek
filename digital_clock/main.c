@@ -9,13 +9,30 @@ void gotoxy(short col, short row)
 {
     HANDLE h=GetStdHandle(STD_OUTPUT_HANDLE);
     COORD position={col,row};
-    CONSOLE_CURSOR_INFO info;
+    CONSOLE_CURSOR_INFO ccinfo;
 
-    info.dwSize = 100;
-    info.bVisible = FALSE;
-    SetConsoleCursorInfo(h, &info);
+    ccinfo.dwSize = 100;
+    ccinfo.bVisible = FALSE;
+    SetConsoleCursorInfo(h, &ccinfo);
 
     SetConsoleCursorPosition(h,position);
+}
+
+struct consoleSize {
+    int cols, rows;
+};
+
+typedef struct consoleSize Struct;
+
+Struct getConsoleSize() {
+    Struct size;
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    size.cols = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    size.rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+
+    return size;
 }
 
 int digit[10][5][3] =
@@ -99,7 +116,7 @@ void clrscr()
 
 void digits(int h, int min, int sec)
 {
-
+    Struct cs;
     int digi_time [6][5][3];
 
     for (int i=0; i<5; i++)
@@ -116,8 +133,8 @@ void digits(int h, int min, int sec)
 
     for (int x = 0; x < 5; x++)
     {
-        // TODO: gotoxy(console.width/2, console.height/2);
-        gotoxy(45,10+x);
+        cs=getConsoleSize();
+        gotoxy((cs.cols-30)/2,(cs.rows-5)/2+x);
         for (int i=0;i<=5;i++)
         {
             if ((i>0) && (i%2==0))
