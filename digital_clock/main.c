@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS 1 // STFU Qt
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -20,7 +20,7 @@ void gotoxy(short col, short row)
 }
 
 struct consoleSize {
-    int cols, rows;
+    short cols, rows;
 };
 
 typedef struct consoleSize Struct;
@@ -36,7 +36,7 @@ Struct getConsoleSize() {
     return size;
 }
 
-Struct cs;
+
 
 int digit[10][5][3] =
 {
@@ -119,6 +119,7 @@ void clrscr()
 
 void digits(int h, int min, int sec)
 {
+    Struct cs;
     Struct currentcs;
     int digi_time [6][5][3];
 
@@ -178,12 +179,10 @@ void current_time()
 
 int main()
 {
-    time_t t = time(NULL);
-
     while (!kbhit()) {
         //clrscr();
         current_time();        
-        Sleep(100);
+        Sleep(125);
     }
     return 0;
 }
