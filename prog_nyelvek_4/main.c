@@ -26,14 +26,14 @@ int main ()
     //(ajánlott oldal: https://phet.colorado.edu/hu/simulation/graphing-lines)
 
     int x1, x2, y1, y2;
-    float m, szog;
+    double m, szog;
     printf("x1, y1: ");
     scanf("%d %d", &x1, &y1);
     printf("x2, y2: ");
     scanf("%d %d", &x2, &y2);
     m = 1.0 * (y2-y1) / (x2-x1);
 
-    float atfogo = sqrt( pow((y2-y1), 2) + pow((x2-x1),2) );
+    double atfogo = sqrt( pow((y2-y1), 2) + pow((x2-x1),2) );
     printf("%f \n",sin( (y2-y1) / atfogo));
     //asin jobb lenne:
     szog = pow(sin( (y2-y1) / atfogo ) * (180.0 / M_PI), -1);
@@ -52,20 +52,6 @@ int main ()
     scanf("%d %d", &honap, &nap);
 
     switch (honap) {
-    /*
-        case 1: evnap=(honap/2)*31+(honap%2-1)*30+nap; break;
-        case 2: evnap=(honap/2)*31+(honap%2)*30+nap; break;
-        case 3: evnap=(honap/2)*31+(honap%2-1)*30+28+nap; break;
-        case 4: evnap=(honap/2)*31+(honap%2)*30+28+nap; break;
-        case 5: evnap=((honap-1)/2)*31+((honap-1)/2)*30+28+nap; break;
-        case 6: evnap=((honap-1)/2)*31+((honap-1)/2)*30+28+nap; break;
-        case 7: evnap=(honap/2)*31+(honap%2-1)*30+28+nap; break;
-        case 8: evnap=(honap/2)*31+(honap%2-1)*30+28+nap; break;
-        case 9: evnap=(honap/2)*31+(honap%2-1)*30+28+nap; break;
-        case 10: evnap=(honap/2)*31+(honap%2-1)*30+28+nap; break;
-        case 11: evnap=(honap/2)*31+(honap%2-1)*30+28+nap; break;
-        case 12: evnap=(honap/2)*31+(honap%2-1)*30+28+nap; break;
-        */
         case 12: evnap += 30;
         case 11: evnap += 31;
         case 10: evnap += 30;
