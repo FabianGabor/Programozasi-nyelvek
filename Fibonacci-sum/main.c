@@ -20,36 +20,38 @@ int main()
     printf("n=");
     scanf("%llu", &n);
 
-    #pragma omp parallel num_threads(7)
+    /*
+    #pragma omp parallel num_threads(8)
     {
-    #pragma omp critical
-        {
+        for (i=0; i<=n; i++) {
 
-                for (i=0; i<n; i++) {
+            fib = f(i);
+            //sum += fib;
+            #pragma omp critical
+            printf("%llu : ", i);
+            #pragma omp critical
+            printf((i<n-1)?"%llu, \n":"%llu\n",fib);
 
-                    fib = f(i);
-                    //sum += fib;
-                    printf("%llu : ", i);
-                    printf((i<n-1)?"%llu, \n":"%llu\n",fib);
 
-                }
         }
     }
+*/
 
 
 
 
-
-    /*
-    for (i=0; i<n; i++) {
-
+#pragma omp parallel for num_threads(8)
+    for (i=0; i<=n; i++) {
+        #pragma omp critical
         fib = f(i);
         //sum += fib;
+        #pragma omp critical
         printf("%d : ", i);
+        #pragma omp critical
         printf((i<n-1)?"%llu, \n":"%llu\n",fib);
 
     }
-    */
+
     //printf("\nSum = %d\n", sum);
 
     double end = omp_get_wtime();
